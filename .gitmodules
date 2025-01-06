@@ -1,0 +1,3 @@
+[submodule "CombBLAS"]
+	path = CombBLAS
+	url = git@github.com:tf-mac/CombBLAS.git
