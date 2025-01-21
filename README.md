@@ -21,9 +21,9 @@ In order to obtain the artifact, please clone and then clone the sub-module via
 
 Create a build directory at a location of your choosing. The author recommends one inside the CombBLAS directory. Enter the build directory and run
 
-  cmake {CombBLAS}
+  ```cmake {CombBLAS}
   make MultAccuracyCUDA
-  make MultTimingCUDA
+  make MultTimingCUDA```
 
 where {CombBLAS} is the path to the CombBLAS directory. Once this is run, allow some time for each of the make commands to run.
 
@@ -32,7 +32,7 @@ where {CombBLAS} is the path to the CombBLAS directory. Once this is run, allow 
 Although these tests can be run directly from the programs produced from the build, the authors recommend running the script. The scripts (accurately named) cover the accuracy of the code and the timing data of the code.
 
 To run a given script, copy it to the build directory, and queue it via 
-  sbatch ./{script} {matA} {matB}
+  ```sbatch ./{script} {matA} {matB}```
 where {script} is the script that one wants to run, while {matA} and {matB} are the matrices to be multiplied in the tests. If you want to change the parameters in the timing script (relating to the number of iterations running and if the communication switching is performed), open the script and change these values as desired. Communication switching can be turned off by setting `comm=0`.
 
 For accuracy runs, due to slight differences in the arithmetic GPU and CPU semirings if you have explicit zeros in your matrix you may observe an accuracy difference. Therefore, we ask you do not use matrices with explicit zeros without pre-processing to remove those zeros (in our test set, only Long_dt0 has explicit zeros. Because of this, this matrix is useful for timing tests but must be pre-processed for accuracy tests).
